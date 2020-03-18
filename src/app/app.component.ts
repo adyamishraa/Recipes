@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularMaxCourse';
+  featuredElement = 'recipe';
+
+  onNavigate(feature:string){
+    this.featuredElement=feature;    
+  }
 }
