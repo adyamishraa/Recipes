@@ -17,7 +17,7 @@ import { SomthingComponent } from './somthing/somthing.component';
 import { RecipeService } from './recipes/recipe.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import {HttpClientModule} from '@angular/common/http';
-import {RecipesResolverService} from './recipes/recipes-resolver.service'
+// import {RecipesResolverService} from './recipes/recipes-resolver.service'
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import {RecipesResolverService} from './recipes/recipes-resolver.service'
     BrowserModule,FormsModule, HttpClientModule,
     AppRoutingModule,ReactiveFormsModule
   ],
-  providers: [RecipeService,ShoppingListService,RecipesResolverService],
+  providers: [RecipeService,ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

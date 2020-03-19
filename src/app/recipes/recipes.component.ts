@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { RecipeService } from './recipe.service';
 import { Subscription } from 'rxjs';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-recipes',
@@ -11,9 +12,11 @@ import { Subscription } from 'rxjs';
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe
   recipeSubscribe:Subscription
-  constructor(private recipeService:RecipeService) { }
+  constructor(private datatStorageService:DataStorageService) { }
+
 
   ngOnInit() {
+    this.datatStorageService.fetchRecipes().subscribe();
     // this.recipeSubscribe=this.recipeService.recipeSelected.subscribe((recipe:Recipe)=>{
     //   this.selectedRecipe=recipe
   //   })

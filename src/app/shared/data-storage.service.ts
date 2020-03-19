@@ -17,6 +17,7 @@ export class DataStorageService {
       response=>{console.log(response)}
     )
   }
+
   fetchRecipes(){
     return this.http.get<Recipe[]>('https://ng-recipe-course-29cdb.firebaseio.com/recipes.json')
     .pipe(map(recipes=>{
@@ -29,4 +30,11 @@ export class DataStorageService {
     )
     
   }
+  
+  // fetchRecipe(){
+  //   return this.http.get<Recipe>('https://ng-recipe-course-29cdb.firebaseio.com/recipes.json')
+  //   .pipe(tap(id=>{
+  //     this.recipeService.getRecipe();
+  //   }))
+  // }
 }

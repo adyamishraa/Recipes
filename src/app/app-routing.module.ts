@@ -7,16 +7,18 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { SomthingComponent } from './somthing/somthing.component';
-import {RecipesResolverService} from './recipes/recipes-resolver.service'
-
+// import {RecipesResolverService} from './recipes/recipes-resolver.service'
+// ,resolve:[RecipesResolverService]
+// ,resolve:[RecipesResolverService]
+// ,resolve:[RecipesResolverService]
 const appRoutes:Routes=[
   {path:'',redirectTo:'recipes',pathMatch:'full'},
   {path:'recipes',component:RecipesComponent,children:[
     // {path:'',component:RecipeStartComponent},
     {path:'new', component:RecipeEditComponent},
-    {path:':id',component:RecipeDetailComponent,resolve:[RecipesResolverService]},
-    {path:':id/edit', component:RecipeEditComponent, resolve:[RecipesResolverService]}
-  ],resolve:[RecipesResolverService]},
+    {path:':id',component:RecipeDetailComponent},
+    {path:':id/edit', component:RecipeEditComponent}
+  ]},
   {path:'shopping-list',component:ShoppingListComponent}
 ]
 
