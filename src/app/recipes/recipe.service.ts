@@ -12,29 +12,34 @@ export class RecipeService {
   // recipeSelected=new Subject<Recipe>();
   recipesChanged= new Subject<Recipe[]>()
   private recipes: Recipe[] = [
-    new Recipe('Shahi Paneer', 
-    'Shahi Paneer is an Indian Dish.',
-    'https://media.gettyimages.com/photos/paneer-makhani-or-shahi-paneer-indian-food-picture-id670906895?s=612x612',
-      [
-        new Ingredient('Cheese',1),
-        new Ingredient('Onion',2)
-      ]),
-    new Recipe('Pasta', 
-    'Pasta is an Italian Dish.',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTbwBGmOsTRtBLjZMkKyUKnpjG5aUBIu2HLaoHITe2z8e4V5MzF',
-    [
-      new Ingredient('Penne',1)
-    ]),
-    new Recipe('Dosa',
-    'It is a South Indian Dish',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQy5cyid61z4rykVOAr4hosa4SKoA64fjK776TSDKCk1ifyr6xH',
-    [
-      new Ingredient('Rava',1),
-      new Ingredient('Potato',3)
-    ])
+    // new Recipe('Shahi Paneer', 
+    // 'Shahi Paneer is an Indian Dish.',
+    // 'https://media.gettyimages.com/photos/paneer-makhani-or-shahi-paneer-indian-food-picture-id670906895?s=612x612',
+    //   [
+    //     new Ingredient('Cheese',1),
+    //     new Ingredient('Onion',2)
+    //   ],
+    //   ""),
+    // new Recipe('Pasta', 
+    // 'Pasta is an Italian Dish.',
+    // 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTbwBGmOsTRtBLjZMkKyUKnpjG5aUBIu2HLaoHITe2z8e4V5MzF',
+    // [
+    //   new Ingredient('Penne',1)
+    // ],""),
+    // new Recipe('Dosa',
+    // 'It is a South Indian Dish',
+    // 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQy5cyid61z4rykVOAr4hosa4SKoA64fjK776TSDKCk1ifyr6xH',
+    // [
+    //   new Ingredient('Rava',1),
+    //   new Ingredient('Potato',3)
+    // ],"")
   ]
   constructor(private shoppingListService:ShoppingListService) { }
 
+  setRecipes(recipes:Recipe[]){
+    this.recipes=recipes
+    this.recipesChanged.next(this.recipes.slice())
+  }
   getRecipes() {
     return this.recipes.slice();
   }

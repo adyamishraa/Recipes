@@ -24,14 +24,14 @@
                     <div class="form-group">
                         <label for="imagePath">Image URL</label>
                         <input formControlName="imagePath"
-                        type="text" id="imagePath"
+                        type="text" id="imagePath" #imagePath
                         class="form-control">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <img src="" class="img-responsive">
+                    <img src="" class="img-responsive" [src]="imagePath.value">
                 </div>
             </div>
             <div class="row">
@@ -58,7 +58,7 @@
                              class="form-control">
                         </div>
                         <div class="col-xs-2">
-                            <button class="btn btn-danger">X</button>
+                            <button type="button" (click)="onCut(i)" class="btn btn-danger">X</button>
                         </div>
                     </div>
                 </div>
@@ -69,6 +69,12 @@
                     <button type="button"
                     class="btn btn-success" 
                     (click)="onAddIngredients()">Add Ingredients</button>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-xs-12">
+                    <label for="optional">Optional detail</label>
+                    <input type="text" formControlName="optional" class="form-control">
                 </div>
             </div>
         </form>
